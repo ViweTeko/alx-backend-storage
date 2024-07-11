@@ -12,7 +12,7 @@ BEGIN
         WHERE name = project_name;
     IF project_count = 0 THEN
         INSERT INTO projects(name)
-        VALUES(project_name);
+            VALUES(project_name);
     END IF;
     SELECT id
         INTO project_id

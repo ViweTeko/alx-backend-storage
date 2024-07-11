@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email CACHAR(255) NOT NULL UNIQUE,
+    email VACHAR(255) NOT NULL UNIQUE,
     name VACHAR(255),
     country CHAR(2) NOT NULL DEFAULT 'US' CHECK (country IN ('US', 'CO', 'TN'))
 );
