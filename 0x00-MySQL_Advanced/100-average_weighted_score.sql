@@ -17,7 +17,7 @@ BEGIN
         FROM corrections
             INNER JOIN projects
                 ON corrections.project_id = projects.id
-            WHERE corrections.user_id = user_id;
+        WHERE corrections.user_id = user_id;
 
     IF total_weight = 0 THEN
         UPDATE users
