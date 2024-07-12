@@ -1,7 +1,7 @@
 -- Computes average score for student
-DROP PROCEDURE IF EXISTS ComputerAverageScoreForUser;
+DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
 DELIMITER $$
-CREATE PROCEDURE ComputerAverageScoreForUser (user_id INT)
+CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
     DECLARE total_score INT DEFAULT 0;
     DECLARE projects_count INT DEFAULT 0;

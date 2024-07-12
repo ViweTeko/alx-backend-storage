@@ -1,7 +1,7 @@
 -- Creates stored procedure which computes avg weighted score
-DROP PROCEDURE IF EXISTS ComputerAverageScoreForUser;
+DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
 DELIMITER $$
-CREATE PROCEDURE ComputerAverageScoreForUser (user_id INT)
+CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
     DECLARE total_weighted_score INT DEFAULT 0;
     DECLARE total_weight INT DEFAULT 0;
