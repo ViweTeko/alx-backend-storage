@@ -17,3 +17,32 @@ def print_nginx_request_logs(nginx_collection):
 
 
 def print_top_ips(server_collection):
+    """Prints stats on top 10 IPs collected"""
+    req_logs = server_collection.aggregate(
+            [
+                {
+                    '$group': {'_id': "$ip", 'totalRequests': {'sum': 1}}
+                },
+                {
+                    '$sort': {'totalRequests': -1}
+                },
+                {
+                    '$limit': 10
+                },
+            ]
+    )
+    for req_log in req_logs:
+        ip = req_log['_id']
+        ip_req = req_log['totalRequests']
+        print(f'\t{ip}: {ip_req}')
+
+
+def run():
+    """Runs Nginx stats stored in MongoDB"""
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    print_nginx_request_logs(clients.logs.nginx)
+    print_top_ips(client.logs.nginx)
+
+
+if __name__ == '__main__':
+    run()
