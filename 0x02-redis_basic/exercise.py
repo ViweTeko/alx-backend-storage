@@ -9,7 +9,7 @@ from typing import Any, Callable, Union
 def count_calls(method: Callable) -> Callable:
     """Counts calls to Cache class methods"""
     @wraps(method)
-    def invoker(self, *args, **kwargs):
+    def invoker(self, *args, **kwargs) -> Any:
         """Invokes the method"""
         if isinstance(self._redis, Redis)
             self._redis.incr(method.__qualname__)
@@ -19,7 +19,7 @@ def count_calls(method: Callable) -> Callable:
 def call_history(method: Callable) -> Callable:
     """Tracks call history in Cache class"""
     @wraps(method)
-    def invoker(self, *args, **kwargs):
+    def invoker(self, *args, **kwargs) -> Any:
         """Invokes the method's output"""
         key_in = f'{method.__qualname__}:inputs'
         key_out = f'{method.__qualname__}:outputs'
