@@ -11,7 +11,7 @@ def count_calls(method: Callable) -> Callable:
     @wraps(method)
     def invoker(self, *args, **kwargs):
         """Invokes the method"""
-        if isinstance(self._redis, redis.Redis)
+        if isinstance(self._redis, Redis)
             self._redis.incr(method.__qualname__)
         return method(self, *args, **kwargs)
     return invoker
